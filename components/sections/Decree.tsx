@@ -84,8 +84,9 @@ export default function Decree() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-10%" }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
+              onMouseEnter={() => audioManager.play("hover")}
               onClick={() => {
-                audioManager.play("hover");
+                audioManager.play("click");
                 setActive(i);
               }}
               className="cursor-pointer group h-full"
@@ -162,7 +163,8 @@ export default function Decree() {
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-emerald-900/60">
                     <span className="text-[10px] font-mono text-emerald-500/60 tracking-widest uppercase">{decrees[active].label} // CLASSIFIED</span>
                     <button
-                      onClick={() => { audioManager.play("hover"); setActive(null); }}
+                      onMouseEnter={() => audioManager.play("hover")}
+                      onClick={() => { audioManager.play("click"); setActive(null); }}
                       className="text-zinc-500 hover:text-emerald-400 transition-colors p-1"
                     >
                       <X size={20} />
@@ -191,7 +193,8 @@ export default function Decree() {
                     <div className="mt-8 flex justify-end">
                       <button
                         className="px-6 py-2.5 bg-emerald-950/60 border border-emerald-500/60 hover:bg-emerald-500 text-emerald-400 hover:text-black font-black uppercase tracking-widest text-xs transition-all duration-200"
-                        onClick={() => setActive(null)}
+                        onMouseEnter={() => audioManager.play("hover")}
+                        onClick={() => { audioManager.play("click"); setActive(null); }}
                       >
                         Acknowledge
                       </button>

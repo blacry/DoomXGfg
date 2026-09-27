@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { audioManager } from "@/lib/audio";
 
 const SovereignSigil = () => (
   <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -92,6 +93,7 @@ export default function Footer() {
                   key={s.name}
                   href={s.href}
                   title={s.name}
+                  onMouseEnter={() => audioManager.play("hover")}
                   className="relative w-10 h-10 flex items-center justify-center border border-emerald-900/60 hover:border-emerald-500/60 text-zinc-500 hover:text-emerald-400 text-[10px] font-mono font-bold tracking-widest transition-all duration-200 group"
                 >
                   {/* Corner accents on hover */}

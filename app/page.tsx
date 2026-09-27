@@ -13,6 +13,7 @@ import Trials from "@/components/sections/Trials";
 import Prizes from "@/components/sections/Prizes";
 import StatsBar from "@/components/sections/StatsBar";
 import Timeline from "@/components/sections/Timeline";
+import Allies from "@/components/sections/Allies";
 import RegisterCTA from "@/components/sections/RegisterCTA";
 import Footer from "@/components/sections/Footer";
 
@@ -103,6 +104,7 @@ export default function Home() {
           <div id="trials"><Trials /></div>
           <div id="prizes"><Prizes /></div>
           <div id="timeline"><Timeline /></div>
+          <Allies />
           <FAQ />
           <div id="register"><RegisterCTA /></div>
           <Footer />

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { audioManager } from "@/lib/audio";
 
 const FAQS = [
   {
@@ -62,7 +63,11 @@ export default function FAQ() {
               className="group"
             >
               <button
-                onClick={() => toggle(i)}
+                onClick={() => {
+                  audioManager.play("click");
+                  toggle(i);
+                }}
+                onMouseEnter={() => audioManager.play("hover")}
                 className={`w-full text-left p-6 border transition-all duration-300 flex justify-between items-center relative overflow-hidden
                   ${openIndex === i 
                     ? "bg-emerald-950/40 border-emerald-500/60" 

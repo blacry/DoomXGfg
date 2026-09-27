@@ -145,7 +145,8 @@ export default function Trials() {
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-emerald-900/60">
                     <span className="text-[10px] font-mono text-emerald-500/60 tracking-widest uppercase">{arenas[active].label} // OPEN</span>
                     <button
-                      onClick={() => { audioManager.play("hover"); setActive(null); }}
+                      onMouseEnter={() => audioManager.play("hover")}
+                      onClick={() => { audioManager.play("click"); setActive(null); }}
                       className="text-zinc-500 hover:text-emerald-400 transition-colors p-1"
                     >
                       <X size={20} />
@@ -178,6 +179,7 @@ export default function Trials() {
                     <div className="mt-8 flex justify-end">
                       <button
                         className="px-8 py-2.5 bg-emerald-950/60 border border-emerald-500/60 hover:bg-emerald-500 text-emerald-400 hover:text-black font-black uppercase tracking-widest text-xs transition-all duration-200"
+                        onMouseEnter={() => audioManager.play("hover")}
                         onClick={() => { audioManager.play("click"); setActive(null); }}
                       >
                         Select Arena

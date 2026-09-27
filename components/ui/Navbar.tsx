@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { audioManager } from "@/lib/audio";
 
 const NAV_LINKS = [
   { label: "Decree", href: "#decree" },
@@ -29,6 +30,7 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (href: string) => {
+    audioManager.play("click");
     setMenuOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -67,6 +69,7 @@ export default function Navbar() {
             <button
               key={link.label}
               onClick={() => scrollTo(link.href)}
+              onMouseEnter={() => audioManager.play("hover")}
               className="relative px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 hover:text-emerald-400 transition-colors duration-200 group"
             >
               {link.label}
@@ -80,9 +83,11 @@ export default function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={() => {
+              audioManager.play("click");
               const el = document.querySelector("#register");
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
+            onMouseEnter={() => audioManager.play("hover")}
             className="relative px-5 py-2 text-xs font-mono font-black uppercase tracking-widest text-emerald-400 border border-emerald-500/60 hover:bg-emerald-950/60 hover:border-emerald-400 transition-all duration-200 group"
           >
             {/* Corner accents */}

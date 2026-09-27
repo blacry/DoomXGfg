@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { audioManager } from "@/lib/audio";
 
 const EVENTS = [
   {
@@ -66,10 +67,13 @@ function TimelineNode({ event, index, isLeft }: { event: typeof EVENTS[0]; index
       initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
       animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -40 : 40 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-      className={`relative flex items-center gap-0 w-full ${isLeft ? "flex-row" : "flex-row-reverse"}`}
+      className={`relative flex items-center gap-0 w-full flex-col md:flex-row ${!isLeft ? "md:flex-row-reverse" : ""}`}
     >
       {/* Card */}
-      <div className={`w-[calc(50%-2.5rem)] ${isLeft ? "pr-6 text-right" : "pl-6 text-left"}`}>
+      <div 
+        className={`w-full md:w-[calc(50%-2.5rem)] ${isLeft ? "md:pr-6 md:text-right" : "md:pl-6 md:text-left"} mb-8 md:mb-0`}
+        onMouseEnter={() => audioManager.play("hover")}
+      >
         <div
           className={`relative group p-5 border bg-black/60 backdrop-blur-md transition-all duration-300 hover:bg-black/80 cursor-default
             ${event.highlight
@@ -118,8 +122,8 @@ function TimelineNode({ event, index, isLeft }: { event: typeof EVENTS[0]; index
         </div>
       </div>
 
-      {/* Center node */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+      {/* Center node (Hidden on mobile for cleaner stack) */}
+      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center z-10">
         <div
           className={`w-10 h-10 border-2 flex items-center justify-center font-mono font-bold text-lg transition-all duration-300
             ${event.highlight
@@ -134,7 +138,7 @@ function TimelineNode({ event, index, isLeft }: { event: typeof EVENTS[0]; index
       </div>
 
       {/* Empty right/left side spacer */}
-      <div className="w-[calc(50%-2.5rem)]" />
+      <div className="hidden md:block w-[calc(50%-2.5rem)]" />
     </motion.div>
   );
 }
@@ -173,8 +177,8 @@ export default function Timeline() {
 
         {/* Timeline */}
         <div className="relative space-y-12">
-          {/* Center line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px pointer-events-none">
+          {/* Center line (Hidden on mobile) */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px pointer-events-none">
             <div className="h-full bg-gradient-to-b from-transparent via-emerald-900/60 to-transparent" />
           </div>
 
