@@ -14,7 +14,7 @@ export default function Timeline() {
 
   return (
     <section className="relative min-h-screen py-24 px-4 flex flex-col justify-center">
-      <div className="absolute inset-0 bg-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       
       <div className="relative z-10 max-w-4xl mx-auto w-full">
         <motion.div
@@ -23,8 +23,8 @@ export default function Timeline() {
           viewport={{ once: false, margin: "-10%" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black uppercase text-white mb-4">Run of the Night</h2>
-          <p className="text-zinc-400">Time waits for no one in my domain.</p>
+          <h2 className="text-4xl font-black uppercase text-white mb-4 drop-shadow-[0_4px_25px_rgba(0,0,0,1)]">Run of the Night</h2>
+          <p className="text-zinc-400 drop-shadow-[0_2px_15px_rgba(0,0,0,1)]">Time waits for no one in my domain.</p>
         </motion.div>
 
         <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-700 before:to-transparent">

@@ -38,7 +38,7 @@ export default function Trials() {
 
   return (
     <section className="relative min-h-screen py-24 px-4 flex flex-col justify-center">
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         <motion.div
@@ -47,8 +47,8 @@ export default function Trials() {
           viewport={{ once: false, margin: "-10%" }}
           className="mb-16 md:w-1/2"
         >
-          <h2 className="text-4xl font-black uppercase text-white mb-4">Choose Your Trial</h2>
-          <p className="text-zinc-400">
+          <h2 className="text-4xl font-black uppercase text-white mb-4 drop-shadow-[0_4px_25px_rgba(0,0,0,1)]">Choose Your Trial</h2>
+          <p className="text-zinc-400 drop-shadow-[0_2px_15px_rgba(0,0,0,1)]">
             Select the arena where you will stake your claim. Master your domain, or be cast aside into the digital void.
           </p>
         </motion.div>

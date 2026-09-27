@@ -35,7 +35,7 @@ export default function Decree() {
 
   return (
     <section className="relative min-h-screen py-24 px-4 flex flex-col justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         <motion.div
@@ -44,8 +44,8 @@ export default function Decree() {
           viewport={{ once: false, margin: "-10%" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black uppercase text-white mb-4">The Decree</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-black uppercase text-white mb-4 drop-shadow-[0_4px_25px_rgba(0,0,0,1)]">The Decree</h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto drop-shadow-[0_2px_15px_rgba(0,0,0,1)]">
             You must prove your worth across three fundamental domains. Failure is not an option; it is a certainty for the unprepared.
           </p>
         </motion.div>

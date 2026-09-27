@@ -37,6 +37,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #000000;
+    background-image: 
+      linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
   }

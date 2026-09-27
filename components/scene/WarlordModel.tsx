@@ -129,8 +129,8 @@ export function WarlordModel(props: any) {
     } else if (progress >= 0.8) {
       // Loom menacingly in the center for the CTA
       targetX = THREE.MathUtils.lerp(isMobile ? 0 : 1.0, 0, (progress - 0.8) / 0.2);
-      targetY = THREE.MathUtils.lerp(-1.0, -0.5, (progress - 0.8) / 0.2);
-      targetZ = THREE.MathUtils.lerp(isMobile ? -1.5 : -1.0, isMobile ? -0.5 : 0.5, (progress - 0.8) / 0.2); 
+      targetY = THREE.MathUtils.lerp(-1.0, isMobile ? -0.3 : -0.3, (progress - 0.8) / 0.2);
+      targetZ = THREE.MathUtils.lerp(isMobile ? -1.5 : -1.0, isMobile ? 0.2 : 1.0, (progress - 0.8) / 0.2); 
     }
     
     group.current.position.x = THREE.MathUtils.lerp(group.current.position.x, targetX, 0.1);

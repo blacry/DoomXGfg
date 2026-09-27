@@ -16,6 +16,7 @@ import Footer from "@/components/sections/Footer";
 
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { AudioController } from "@/components/ui/AudioController";
+import FogOverlay from "@/components/ui/FogOverlay";
 
 // Lazy load the Canvas to prevent SSR issues with Three.js
 const SceneCanvas = dynamic(() => import("@/components/scene/SceneCanvas"), { ssr: false });
@@ -67,6 +68,8 @@ export default function Home() {
       <div className="relative z-10">
         <SceneCanvas />
       </div>
+      
+      <FogOverlay />
       
       {/* Rest of the DOM Content goes in front of the Canvas so overlays work */}
       <div className="relative z-20 w-full pointer-events-none">

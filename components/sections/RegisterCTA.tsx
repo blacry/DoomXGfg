@@ -103,7 +103,7 @@ export default function RegisterCTA() {
   return (
     <>
       <section className="relative min-h-[70vh] py-24 px-4 flex flex-col items-center justify-center text-center">
-        <div className="absolute inset-0 bg-black/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -113,10 +113,10 @@ export default function RegisterCTA() {
           className="relative z-10 space-y-10 max-w-3xl mx-auto"
         >
           <div className="space-y-4">
-            <h2 className="text-5xl md:text-7xl font-black uppercase text-white tracking-tighter drop-shadow-lg">
+            <h2 className="text-5xl md:text-7xl font-black uppercase text-white tracking-tighter drop-shadow-[0_4px_25px_rgba(0,0,0,1)]">
               Will You Answer?
             </h2>
-            <p className="text-xl md:text-2xl text-zinc-400 font-light max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-zinc-400 font-light max-w-2xl mx-auto drop-shadow-[0_2px_15px_rgba(0,0,0,1)]">
               The sovereign awaits your arrival. Secure your place in the trials before the gates close forever.
             </p>
           </div>

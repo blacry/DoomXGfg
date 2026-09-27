@@ -23,9 +23,11 @@ export default function Reveal() {
           style={{ maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)" }}
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       
       <div className="sticky top-0 h-screen w-full flex items-center justify-center">
+        {/* Soft radial shadow specifically behind the text to ensure readability against the 3D model */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.7)_0%,transparent_60%)] pointer-events-none" />
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: "blur(5px)" }}
           whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -33,14 +35,14 @@ export default function Reveal() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="text-center max-w-4xl mx-auto space-y-6"
         >
-          <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 uppercase tracking-tighter drop-shadow-xl">
+          <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 uppercase tracking-tighter drop-shadow-[0_4px_25px_rgba(0,0,0,1)]">
             The World Crumbles.
             <br />
             <span className="text-green-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]">I Offer Order.</span>
           </h2>
-          <p className="text-xl text-zinc-300 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-zinc-300 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,1)]">
             You stand before the sovereign of a new digital era. 
-            Survival is not guaranteed, but for those who possess the intellect to overcome my trials, <strong className="text-white font-semibold">glory awaits.</strong>
+            Survival is not guaranteed, but for those who possess the intellect to overcome my trials, <strong className="text-white font-semibold drop-shadow-md">glory awaits.</strong>
           </p>
         </motion.div>
       </div>
