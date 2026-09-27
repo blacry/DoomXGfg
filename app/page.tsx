@@ -10,13 +10,21 @@ import Hero from "@/components/sections/Hero";
 import Reveal from "@/components/sections/Reveal";
 import Decree from "@/components/sections/Decree";
 import Trials from "@/components/sections/Trials";
+import Prizes from "@/components/sections/Prizes";
+import StatsBar from "@/components/sections/StatsBar";
 import Timeline from "@/components/sections/Timeline";
 import RegisterCTA from "@/components/sections/RegisterCTA";
 import Footer from "@/components/sections/Footer";
 
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { AudioController } from "@/components/ui/AudioController";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
+import Navbar from "@/components/ui/Navbar";
 import FogOverlay from "@/components/ui/FogOverlay";
+import GlitchTransition from "@/components/ui/GlitchTransition";
+import BackToTop from "@/components/ui/BackToTop";
+import FAQ from "@/components/sections/FAQ";
 
 // Lazy load the Canvas to prevent SSR issues with Three.js
 const SceneCanvas = dynamic(() => import("@/components/scene/SceneCanvas"), { ssr: false });
@@ -48,13 +56,17 @@ export default function Home() {
     <main ref={containerRef} className="relative w-full min-h-screen">
       <LoadingScreen />
       <AudioController />
-      
+      <CustomCursor />
+      <ScrollProgressBar />
+      <BackToTop />
+      <Navbar />
+
       {/* Logos in top right */}
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 pointer-events-auto">
-        <img 
-          src="/logos.png" 
-          alt="Partner Logos" 
-          className="h-8 sm:h-12 md:h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" 
+        <img
+          src="/logos.png"
+          alt="Partner Logos"
+          className="h-8 sm:h-12 md:h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
         />
       </div>
 
@@ -68,7 +80,8 @@ export default function Home() {
       <div className="relative z-10">
         <SceneCanvas />
       </div>
-      
+
+      <GlitchTransition />
       <FogOverlay />
 
       {/* Film grain noise overlay — gives premium editorial feel */}
@@ -80,15 +93,18 @@ export default function Home() {
           backgroundSize: '128px 128px',
         }}
       />
-      
+
       {/* Rest of the DOM Content goes in front of the Canvas so overlays work */}
       <div className="relative z-20 w-full pointer-events-none">
         <div className="pointer-events-auto selection:bg-zinc-700 selection:text-white">
           <Reveal />
-          <Decree />
-          <Trials />
-          <Timeline />
-          <RegisterCTA />
+          <StatsBar />
+          <div id="decree"><Decree /></div>
+          <div id="trials"><Trials /></div>
+          <div id="prizes"><Prizes /></div>
+          <div id="timeline"><Timeline /></div>
+          <FAQ />
+          <div id="register"><RegisterCTA /></div>
           <Footer />
         </div>
       </div>

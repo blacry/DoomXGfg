@@ -26,18 +26,20 @@ export function AudioController() {
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => {
             const muted = audioManager.toggleMute();
             setIsMuted(muted);
           }}
-          className="group flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-3 rounded-full bg-zinc-900/90 border border-zinc-700 hover:border-green-500 shadow-lg backdrop-blur-md transition-all"
+          className="group w-12 h-12 flex flex-col items-center justify-center rounded-full bg-black/60 border border-emerald-500/60 shadow-[0_0_15px_rgba(16,185,129,0.2)] backdrop-blur-md hover:bg-emerald-950/80 hover:border-emerald-400 transition-colors duration-300"
+          aria-label={isMuted ? "Audio Off" : "Audio On"}
         >
-          {isMuted ? <VolumeX className="text-zinc-500 group-hover:text-green-500 w-4 h-4 sm:w-6 sm:h-6" /> : <Volume2 className="text-green-500 w-4 h-4 sm:w-6 sm:h-6" />}
-          <span className="text-[10px] sm:text-sm font-bold uppercase tracking-wider text-zinc-300 group-hover:text-white">
-            {isMuted ? "Audio Off" : "Audio On"}
-          </span>
+          {isMuted ? (
+            <VolumeX className="text-zinc-400 group-hover:text-emerald-400 w-5 h-5 drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+          ) : (
+            <Volume2 className="text-emerald-500 group-hover:text-emerald-400 w-5 h-5 drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+          )}
         </motion.button>
       </AnimatePresence>
     </div>
