@@ -21,7 +21,7 @@ export function AudioController() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-3">
       <AnimatePresence>
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
@@ -32,10 +32,10 @@ export function AudioController() {
             const muted = audioManager.toggleMute();
             setIsMuted(muted);
           }}
-          className="group flex items-center gap-3 px-4 py-3 rounded-full bg-zinc-900/90 border border-zinc-700 hover:border-green-500 shadow-lg backdrop-blur-md transition-all"
+          className="group flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-3 rounded-full bg-zinc-900/90 border border-zinc-700 hover:border-green-500 shadow-lg backdrop-blur-md transition-all"
         >
-          {isMuted ? <VolumeX className="text-zinc-500 group-hover:text-green-500" size={24} /> : <Volume2 className="text-green-500" size={24} />}
-          <span className="text-sm font-bold uppercase tracking-wider text-zinc-300 group-hover:text-white">
+          {isMuted ? <VolumeX className="text-zinc-500 group-hover:text-green-500 w-4 h-4 sm:w-6 sm:h-6" /> : <Volume2 className="text-green-500 w-4 h-4 sm:w-6 sm:h-6" />}
+          <span className="text-[10px] sm:text-sm font-bold uppercase tracking-wider text-zinc-300 group-hover:text-white">
             {isMuted ? "Audio Off" : "Audio On"}
           </span>
         </motion.button>

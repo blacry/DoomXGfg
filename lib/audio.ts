@@ -5,6 +5,15 @@ class AudioManager {
   public isMuted = true;
   private initialized = false;
 
+  constructor() {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("audio_muted");
+      if (stored === "true") {
+        this.isMuted = true;
+      }
+    }
+  }
+
   load(id: string, src: string, loop = false, volume = 1) {
     if (typeof window === "undefined") return;
     const audio = new Audio(src);
@@ -75,6 +84,12 @@ class AudioManager {
 
   toggleMute() {
     this.isMuted = !this.isMuted;
+    
+    if (typeof window !== "undefined") {
+      localStorage.setItem("audio_muted", String(this.isMuted));
+      localStorage.setItem("audio_user_set", "true");
+    }
+
     if (this.isMuted) {
       if (this.sounds["bgm"]) this.sounds["bgm"].pause();
     } else {
@@ -85,7 +100,23 @@ class AudioManager {
   }
 
   unmuteAndStart() {
-    this.isMuted = false;
+    // Only unmute if the user hasn't explicitly muted it before
+    if (typeof window !== "undefined") {
+      const userSet = localStorage.getItem("audio_user_set");
+      const isMutedStored = localStorage.getItem("audio_muted");
+      
+      if (userSet === "true" && isMutedStored === "true") {
+        this.isMuted = true;
+        return; // Keep it muted
+      }
+      
+      // Otherwise, turn it on and save that preference
+      this.isMuted = false;
+      localStorage.setItem("audio_muted", "false");
+    } else {
+      this.isMuted = false;
+    }
+
     if (this.sounds["bgm"]) this.sounds["bgm"].play().catch(() => {});
     this.initCtx(); // init context on user interaction
   }

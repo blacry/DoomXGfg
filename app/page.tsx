@@ -48,6 +48,15 @@ export default function Home() {
       <LoadingScreen />
       <AudioController />
       
+      {/* Logos in top right */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 pointer-events-auto">
+        <img 
+          src="/logos.png" 
+          alt="Partner Logos" 
+          className="h-8 sm:h-12 md:h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" 
+        />
+      </div>
+
       {/* Hero section goes behind the Canvas */}
       <div className="relative z-0 w-full pointer-events-none">
         <div className="pointer-events-auto selection:bg-zinc-700 selection:text-white">

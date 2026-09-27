@@ -18,9 +18,12 @@ export default function Reveal() {
         className="absolute inset-0 z-[-1]"
         style={{ y }}
       >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518365050014-70fe7232897f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-20 grayscale" />
+        <div 
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518365050014-70fe7232897f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-20 grayscale" 
+          style={{ maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)" }}
+        />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black to-transparent pointer-events-none" />
       
       <div className="sticky top-0 h-screen w-full flex items-center justify-center">
         <motion.div

@@ -35,7 +35,7 @@ export default function Decree() {
 
   return (
     <section className="relative min-h-screen py-24 px-4 flex flex-col justify-center">
-      <div className="absolute inset-0 bg-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none" />
       
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         <motion.div

@@ -112,24 +112,25 @@ export function WarlordModel(props: any) {
     
     // HERO SECTION (progress 0 - 0.2)
     // "only his head in the hero section"
-    let targetY = -0.75; // Align head exactly with camera center
-    let targetZ = 2.4; // Extremely close to the camera (Z=3.0) for a huge face shot
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    let targetY = isMobile ? -0.9 : -0.75; // Align head exactly with camera center
+    let targetZ = isMobile ? 1.5 : 2.4; // Push back on mobile so it fits the narrow FOV
 
     if (progress > 0.2 && progress < 0.5) {
       // Transition back to full body
-      targetX = THREE.MathUtils.lerp(0, -1.0, (progress - 0.2) / 0.3);
-      targetY = THREE.MathUtils.lerp(-0.75, -1.2, (progress - 0.2) / 0.3);
-      targetZ = THREE.MathUtils.lerp(2.4, -0.5, (progress - 0.2) / 0.3); 
+      targetX = THREE.MathUtils.lerp(0, isMobile ? 0 : -1.0, (progress - 0.2) / 0.3);
+      targetY = THREE.MathUtils.lerp(isMobile ? -0.9 : -0.75, -1.2, (progress - 0.2) / 0.3);
+      targetZ = THREE.MathUtils.lerp(isMobile ? 1.5 : 2.4, isMobile ? -1.5 : -0.5, (progress - 0.2) / 0.3); 
     } else if (progress >= 0.5 && progress < 0.8) {
       // Move to right side
-      targetX = THREE.MathUtils.lerp(-1.0, 1.0, (progress - 0.5) / 0.3);
+      targetX = THREE.MathUtils.lerp(isMobile ? 0 : -1.0, isMobile ? 0 : 1.0, (progress - 0.5) / 0.3);
       targetY = THREE.MathUtils.lerp(-1.2, -1.0, (progress - 0.5) / 0.3);
-      targetZ = THREE.MathUtils.lerp(-0.5, -1.0, (progress - 0.5) / 0.3); 
+      targetZ = THREE.MathUtils.lerp(isMobile ? -1.5 : -0.5, isMobile ? -1.5 : -1.0, (progress - 0.5) / 0.3); 
     } else if (progress >= 0.8) {
       // Loom menacingly in the center for the CTA
-      targetX = THREE.MathUtils.lerp(1.0, 0, (progress - 0.8) / 0.2);
+      targetX = THREE.MathUtils.lerp(isMobile ? 0 : 1.0, 0, (progress - 0.8) / 0.2);
       targetY = THREE.MathUtils.lerp(-1.0, -0.5, (progress - 0.8) / 0.2);
-      targetZ = THREE.MathUtils.lerp(-1.0, 0.5, (progress - 0.8) / 0.2); 
+      targetZ = THREE.MathUtils.lerp(isMobile ? -1.5 : -1.0, isMobile ? -0.5 : 0.5, (progress - 0.8) / 0.2); 
     }
     
     group.current.position.x = THREE.MathUtils.lerp(group.current.position.x, targetX, 0.1);

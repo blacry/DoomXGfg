@@ -16,25 +16,28 @@ export default function Hero() {
         className="absolute inset-0 z-[-1]"
         style={{ y, opacity }}
       >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618519764633-5605059cb232?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-30 grayscale" />
+        <div 
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618519764633-5605059cb232?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-30 grayscale" 
+          style={{ maskImage: "linear-gradient(to bottom, black 50%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent)" }}
+        />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black pointer-events-none" />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
         animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 1 }}
-        className="relative z-10 space-y-4"
+        className="relative z-10 flex flex-col items-center w-full max-w-[100vw] px-2 space-y-4"
       >
-        <p className="text-green-500 font-medium tracking-[0.3em] uppercase text-xs md:text-sm drop-shadow-md">
+        <p className="text-green-500 font-medium tracking-[0.1em] sm:tracking-[0.3em] uppercase text-[0.6rem] sm:text-xs md:text-sm drop-shadow-md text-center break-words max-w-full">
           GeeksForGeeks Student Chapter • Bennett University
         </p>
         
-        <h1 className="text-[6rem] sm:text-[10rem] md:text-[16rem] lg:text-[20rem] font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-300 to-zinc-600 drop-shadow-2xl mix-blend-screen leading-none overflow-hidden whitespace-nowrap">
+        <h1 className="text-[15vw] sm:text-[10rem] md:text-[16rem] lg:text-[20rem] font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-300 to-zinc-600 drop-shadow-2xl mix-blend-screen leading-none overflow-hidden whitespace-nowrap">
           Sovereign
         </h1>
         
-        <p className="text-lg md:text-2xl text-zinc-300 max-w-2xl mx-auto font-light tracking-widest mt-8">
+        <p className="text-sm sm:text-lg md:text-2xl text-zinc-300 max-w-2xl mx-auto font-light tracking-widest mt-4 sm:mt-8 px-4 break-words">
           A night of unyielding trials. Only the worthy will ascend.
         </p>
       </motion.div>
